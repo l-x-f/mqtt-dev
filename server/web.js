@@ -3,14 +3,18 @@ const mosca = require('mosca')
 const ascoltatore = {}
 
 const settings = {
-  port: 1888,
+  http: {
+    port: 1888,
+    bundle: true,
+    static: './'
+  },
   backend: ascoltatore
 }
 
 const server = new mosca.Server(settings)
 
 server.on('clientConnected', function(client) {
-  console.log('client connected', client.id)
+  console.log('客户端已连接', client.id)
 })
 
 // fired when a message is received
