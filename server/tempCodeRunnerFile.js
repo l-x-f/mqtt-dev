@@ -3,7 +3,11 @@ const mosca = require('mosca')
 const ascoltatore = {}
 
 const settings = {
-  port: 1888,
+  http: {
+    port: 1888,
+    bundle: true,
+    static: './'
+  },
   backend: ascoltatore
 }
 
